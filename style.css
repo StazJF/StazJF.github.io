@@ -369,9 +369,9 @@ h1 em,h2 em {
   margin:0
 }
 .project-tags {
-  display:flex;
+  display:grid;
+  grid-template-columns:repeat(4,max-content);
   gap:5px;
-  flex-wrap:wrap
 }
 .project-tags span {
   font:.57rem 'DM Mono';
@@ -379,6 +379,46 @@ h1 em,h2 em {
   color:#9da39e;
   padding:6px 7px;
   border-radius:20px
+}
+.project-github {
+  grid-column:1/-1;
+  justify-self:start;
+  margin-top:8px;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  font:.57rem 'DM Mono';
+  color:#9da39e;
+  border:1px solid #353a37;
+  padding:6px 7px;
+  border-radius:20px;
+  text-decoration:none;
+  transition:color .25s, border-color .25s, background .25s, transform .25s
+}
+.project-github svg {
+  width:11px;
+  height:11px
+}
+.project-github span {
+  border:0;
+  padding:0;
+  color:inherit;
+  font:inherit
+}
+.project-github::after {
+  content:'↗';
+  font-size:.9rem;
+  line-height:1;
+  transition:transform .25s
+}
+.project-github:hover {
+  color:var(--ink);
+  border-color:#707772;
+  background:#181b18;
+  transform:translateY(-1px)
+}
+.project-github:hover::after {
+  transform:translate(2px,-2px)
 }
 .project-plus {
   background:transparent;
