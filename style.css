@@ -371,6 +371,8 @@ h1 em,h2 em {
 .project-tags {
   display:grid;
   grid-template-columns:repeat(4,max-content);
+  grid-auto-rows:min-content;
+  align-items:start;
   gap:5px;
 }
 .project-tags span {
@@ -397,7 +399,11 @@ h1 em,h2 em {
 }
 .project-github svg {
   width:11px;
-  height:11px
+  height:11px;
+  min-width:11px;
+  min-height:11px;
+  max-width:11px;
+  max-height:11px
 }
 .project-github span {
   border:0;
