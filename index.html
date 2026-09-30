@@ -132,21 +132,23 @@
           <a href="https://instagram.com/srnrenz" target="_blank" rel="noreferrer">Instagram</a>
         </div>
       </div>
-      <form class="contact-form reveal" novalidate>
+      <!-- Replace REPLACE_WITH_YOUR_FORM_ID after creating and verifying your Formspree form. -->
+      <form class="contact-form reveal" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST" novalidate>
+        <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
         <label>Name
-          <input name="name" required placeholder="Your name">
+          <input name="name" required maxlength="100" autocomplete="name" placeholder="Your name">
         </label>
         <label>Email
-          <input name="email" type="email" required placeholder="you@example.com">
+          <input name="email" type="email" required maxlength="254" autocomplete="email" placeholder="you@example.com">
         </label>
         <label>Subject
-          <input name="subject" required placeholder="What’s this about?">
+          <input name="subject" required maxlength="150" placeholder="What’s this about?">
         </label>
         <label>Message
-          <textarea name="message" required placeholder="Tell me about your project..."></textarea>
+          <textarea name="message" required maxlength="5000" placeholder="Tell me about your project..."></textarea>
         </label>
-        <button class="button primary" type="submit">Send message <b>↗</b></button>
-        <p class="form-status" aria-live="polite"></p>
+        <button class="button primary" type="submit"><span>Send message</span> <b>↗</b></button>
+        <p class="form-status" role="status" aria-live="polite"></p>
       </form>
     </section>
   </main>
