@@ -108,8 +108,14 @@ if (contactForm) {
         let detail = '';
         try {
           const result = await response.json();
-          detail = result.errors?.[0]?.message || '';
+          const firstError = Array.isArray(result.errors) ? result.errors[0] : null;
+          detail = firstError?.message || firstError?.code || result.error || result.message || '';
         } catch { /* Use the safe fallback below. */ }
+
+        if (response.status === 403) {
+          throw new Error(detail || 'Formspree refused this submission. Check that the form is active and its domain/CAPTCHA settings allow this site.');
+        }
+
         throw new Error(detail || 'Unable to submit the form.');
       }
 
